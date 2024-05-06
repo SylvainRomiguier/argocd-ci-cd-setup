@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: angular-my-bank
+  namespace: argocd
+
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+
+spec:
+  description: "Angular My Bank project"
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  destinations:
+    - namespace: angular-my-bank
+      server: https://kubernetes.default.svc
+  sourceRepos:
+    - '*'
+  orphanedResources:
+    warn: false
+  

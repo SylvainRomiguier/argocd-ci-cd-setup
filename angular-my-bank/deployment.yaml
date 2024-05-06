@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-my-bank
+  namespace: angular-my-bank
+  labels:
+    app: angular-my-bank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-my-bank
+  template:
+    metadata:
+      labels:
+        app: angular-my-bank
+    spec:
+      automountServiceAccountToken: false
+      containers:
+      - name: angular-my-bank
+        resources:
+          limits:
+            cpu: 1
+            memory: 1Gi
+        imagePullPolicy: Always
+        image: ghcr.io/sylvainromiguier/angular-my-bank:0.0.2
+        ports:
+        - containerPort: 5174

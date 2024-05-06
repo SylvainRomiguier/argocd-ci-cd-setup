@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: angular-my-bank
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: angular-my-bank
+  source:
+    repoURL: git@github.com:SylvainRomiguier/argocd-ci-cd-setup.git
+    targetRevision: HEAD
+    path: angular-my-bank
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: angular-my-bank
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=true
+      - PrunePropagationPolicy=Foreground
+      - PruneLast=true
