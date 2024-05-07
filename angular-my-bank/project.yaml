@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
   name: angular-my-bank
-  namespace: argocd
+  namespace: angular-my-bank
 
   finalizers:
     - resources-finalizer.argocd.argoproj.io
