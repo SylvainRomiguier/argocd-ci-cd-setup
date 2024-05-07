@@ -8,7 +8,7 @@ metadata:
 spec:
   project: angular-my-bank
   source:
-    repoURL: git@github.com:SylvainRomiguier/argocd-ci-cd-setup.git
+    repoURL: https://github.com/SylvainRomiguier/argocd-ci-cd-setup.git
     targetRevision: HEAD
     path: angular-my-bank
   destination:
@@ -22,5 +22,5 @@ spec:
     syncOptions:
       - Validate=true
       - CreateNamespace=true
-      - PrunePropagationPolicy=Foreground
+      - PrunePropagationPolicy=foreground
       - PruneLast=true
