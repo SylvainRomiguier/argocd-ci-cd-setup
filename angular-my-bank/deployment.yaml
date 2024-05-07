@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: angular-my-bank
-  namespace: angular-my-bank
+  namespace: argocd
   labels:
     app: angular-my-bank
 spec:
